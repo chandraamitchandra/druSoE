@@ -295,7 +295,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = 'hiQT8DFj8uzO9ykuCAwkzow3LsVYAtZ2fWskNKP4nxGG2Kj0VH_do6thBHrIGNT3Kpxbe_DSNA';
 
 /**
  * Deployment identifier.
@@ -765,11 +765,9 @@ $settings['file_scan_ignore_directories'] = [
 # }
 
 // Initialize install_profile to the Drupal distribution name detected by the Acquia Cloud installation process.
-if (class_exists('Drupal') && defined('Drupal::CORE_COMPATIBILITY') && Drupal::CORE_COMPATIBILITY == '8.x') {
- if (!isset($settings['install_profile'])) {
+
     $settings['install_profile'] = 'lightning';
-  }
-}
+ 
 
 
 // On Acquia Cloud, this include file configures Drupal to use the correct
@@ -779,3 +777,14 @@ if (class_exists('Drupal') && defined('Drupal::CORE_COMPATIBILITY') && Drupal::C
 if (file_exists('/var/www/site-php')) {
   require('/var/www/site-php/applicationsoe/applicationsoe-settings.inc');
 }
+$databases['default']['default'] = array (
+  'database' => 'soe',
+  'username' => 'root',
+  'password' => '',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+$config_directories['sync'] = 'sites/default/files/config_oaD9x3aumC3F0nvv3W9ka6AYoczDE7eMO0bP0N1uDL8Chd_Ssx-Jz2RnClgQUMMa_o3YP_hyIA/sync';
